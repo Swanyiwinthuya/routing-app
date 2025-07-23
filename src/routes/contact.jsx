@@ -3,7 +3,7 @@ import { getContact, updateContact } from "../contact";
 
 export async function loader({ params }) {
   const contact = await getContact(params.contactId);
-  if (!contact) {
+  if (!contact) { // This condition is correct for throwing a 404 if contact is not found.
     throw new Response("", {
       status: 404,
       statusText: "Not Found",
